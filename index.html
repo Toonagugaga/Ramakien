@@ -2,19 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <header>
-      <ul>
-        <a href="">Home</a>
-        <a href="">Login</a>
-        <a href="">Contacts</a>
-        <a href="">Info</a>
-        <a href="">Info</a>
+    </div>
+      <nav>
+        <a href="">หน้าหลัก</a>
+        <a href="">ประวัติ</a>
+        <a href="">ติดต่อเรา</a>
+        <a href="">อ้างอิง</a>
+    </nav>
+    <div class="corner-menu" onclick="toggleDropdown()">
+      <div class="icon">👤</div>
+      <div class="dropdown" id="dropdown-menu">
+          <ul>
+              <li onclick="goToLogin()">ลงชื่อเข้าใช้</li>
+              <li onclick="goToSignup()">ลงชื่อสมัคร</li>
+              <div class="line"></div>
+              <li class="facebook">
+                <a href="#"><i class="fab fa-facebook-f"></i>Facebook</a>
+              </li>
+              <li class="google">
+                <a href="#"><i class="fab fa-google"></i>Google</a>
+              </li>
       </ul>
+      </div>
+  </div>
+
+  <script>
+      function toggleDropdown() {
+          const menu = document.getElementById('dropdown-menu');
+          menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+      }
+
+      function goToLogin() {
+          window.location.href = 'login.html'; // เปลี่ยนไปยังหน้าลงชื่อเข้าใช้
+      }
+
+      function goToSignup() {
+          window.location.href = 'sinup.html'; // เปลี่ยนไปยังหน้าลงชื่อสมัคร
+      }
+
+      // ปิด dropdown เมื่อคลิกข้างนอก
+      window.addEventListener('click', function (e) {
+          const menu = document.getElementById('dropdown-menu');
+          const icon = document.querySelector('.corner-menu');
+          if (!icon.contains(e.target)) {
+              menu.style.display = 'none';
+          }
+      });
+  </script>
     </header>
 
     <!-- carousel -->
